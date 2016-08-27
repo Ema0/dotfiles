@@ -57,9 +57,9 @@ radiotray &
 
 caffeine &
 
-dunst &
-
+#dunst &
 exec 2bwm
+
 #exec urxvt
 
 #exec bspwm
