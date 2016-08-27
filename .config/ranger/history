@@ -1,0 +1,26 @@
+terminal
+open_with /dev/null
+open_with self
+open_with 
+execute_command gvim ranger_
+execute_console 
+execute_console gvim ranger_
+toggle_option
+touch 
+touch ranger_
+open_with gvim
+console 
+chmod +x
+filter f
+find 
+open_with zathura
+execute_command udisksctl unmount /dev/sdb2
+execute_command udisksctl mount -b /dev/sdb2
+execute_console udisksctl -b /dev/sdb2
+filter 
+cd 
+cd .wallpaper/
+delete
+rename Downloads
+rename 2bwm
+

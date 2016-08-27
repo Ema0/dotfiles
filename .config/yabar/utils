@@ -1,0 +1,101 @@
+#!/bin/zsh
+
+workspace () {
+    uno=""
+    due=""
+    tre=""
+    quattro=""
+    cinque=""
+    d1="<span color='#b3cbb9'>$uno</span>$due$tre$quattro$cinque"
+    d2="$uno<span color='#84a9c0'>$due</span>$tre$quattro$cinque"
+    d3="$uno$due<span color='#6a66a3'>$tre</span>$quattro$cinque"
+    d4="$uno$due$tre<span color='#542e71'>$quattro</span>$cinque"
+    d5="$uno$due$tre$quattro<span color='#59b347'>$cinque</span>"
+    res=$(echo $(xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'))
+
+    case $res in
+        "0") echo -n "$d1";;
+        "1") echo -n "$d2";;
+        "2") echo -n "$d3";;
+        "3") echo -n "$d4";;
+        "4") echo -n "$d5";;
+    esac
+}
+
+volume(){
+	V=$(amixer -M  get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
+
+	STATUS=$(amixer -M get Master | sed -n 's/^.*\[\([a-z]\+\).*$/\1/p'| uniq)
+
+	if [[ "$STATUS" == "on" ]]; then
+		echo -n "<span color='#542e71'></span>$V%"
+	else
+		echo -n !Y BG 0xFF542e71 FG 0xFFFFFFFF Y! 
+	fi
+}
+
+actionvol(){
+	#this is used only in xmobar. NEVER IN YABAR!!!
+
+    V=$(amixe r get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
+
+    STATUS=$(amixer get Master | sed -n 's/^.*\[\([a-z]\+\).*$/\1/p'| uniq)
+
+    if [[ "$STATUS" == 'on' ]]
+    then
+        echo -n "<action= \`urxvtc -e alsamixer\` button=3><action=\`amixer set Master 5%+\` button=4><action=\`amixer set Master 5%-\` button=5><action=\`amixer -D pulse set Master 1+ toggle\` button=2><fc=#542e71></fc>$V%</action></action></action></action>"
+    else
+    	echo -n "<action=\`amixer -D pulse set Master 1+ toggle\` button=2> <fc=#FFFFFF,#542e71>   </fc></action>"
+    fi
+}
+
+battery(){
+    bat_status=$(acpi | awk '{print $3}' | awk '{print substr($0, 0, length($0) - 1)}')
+    bat_level=$(acpi | awk '{print $4}' | awk '{print substr($0, 0, length($0) - 1)}')
+    bat_life=$(acpi | awk '{print $5}' | awk '{print substr($0, 0, 5)}')
+
+    if [[ "$bat_status" == "Charging" ]]; then
+        echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level ($bat_life)";
+    elif [[ "$bat_status" == "Full" ]]; then
+		echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level%";
+    elif [[ "$bat_status" == "Discharging" || "$bat_status" = "Unknown" ]]; then
+		if [[ $bat_level == "100%" ]]; then
+			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>90 ]]; then
+            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>80 ]]; then
+			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>70 ]]; then
+            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>60 ]]; then
+            echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>50 ]]; then
+			echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
+ 		elif [[ $bat_level>40 ]]; then
+            echo -n "!Y U 0xFFE6CA77 Y!<span color='#E6CA77'></span>$bat_level ($bat_life)";
+   		elif [[ $bat_level>30 ]]; then
+            echo -n "!Y U 0xFFE6AB77 Y!<span color='#E6AB77'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>20 ]]; then
+            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>10 ]]; then
+            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
+		else
+			notify-send "battery low" -u critical
+			echo -n "!Y U 0xFFa54242 Y!<span color='#a54242'></span>$bat_level ($bat_life)";
+		fi
+	fi
+}
+
+
+if [[ "$1" == "vol" ]]; then
+    volume
+elif [[ "$1" == "av" ]]; then
+	actionvol
+elif [[ "$1" == "bat" ]]; then
+    battery
+elif [[ "$1" == "ws" ]]; then
+	while  true; do
+    	workspace
+    	sleep 0.3
+    done
+fi

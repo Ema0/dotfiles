@@ -1,0 +1,13 @@
+*
+!.gitignore
+!.zshrc
+!.Xresources
+!.xinitrc
+!.rtorrent.rc
+!.ncmpcpp/
+!.ncmpcpp/config
+!.tmux.conf
+!.chktexrc
+!.latexmkrc
+!.gtkrc-2.0
+!.config/
