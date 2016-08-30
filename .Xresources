@@ -5,9 +5,11 @@ Xcursor.theme: OpenzoneIceSlim
 !!URxvt.background: rgba:1111/1111/1111/dddd
 !URxvt*background: [100]#202020
 URxvt*scrollBar: false
-URxvt*boldFont: xft:Terminus:size=8,xft:tewi
-URxvt*font: xft:Terminus:regular:size=8,xft:tewi
-URxvt*lineSpace: 1
+!URxvt*boldFont: xft:Terminus:size=8,xft:tewi
+!URxvt*font: xft:Terminus:regular:size=8,xft:tewi
+URxvt*font: xft:Hack:size=9
+URxvt*boldFont: xft:Hack:size=9
+!URxvt*lineSpace: 1
 !zemnl*letterSpace:1
 
 
@@ -18,7 +20,7 @@ URxvt*lineSpace: 1
 
 !URxvt.font: -*-Terminus-*-*-*-*-100-*-*-*-*-iso8859-1
 !URxvt*font: xft:Dejavu Sans Mono:size=9:pixelsize=11
-URxvt*letterSpace: 0
+URxvt*letterSpace: -2
 URxvt*geometry: 104x26
 urxvt*perl-lib: /usr/lib/urxvt/perl/
 URxvt*.perl-ext-common: default,matcher,vtwheel
