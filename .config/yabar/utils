@@ -86,9 +86,20 @@ battery(){
 	fi
 }
 
+music(){
+	if [[ -e /tmp/mpd.fifo ]]; then
+		SONG=$(mpc | head -n 1)
+		echo -n "!Y U 0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
+	else
+		echo -n "!Y U 0xFF1B1B1B Y!";
+	fi
+}
+
 
 if [[ "$1" == "vol" ]]; then
     volume
+elif [[ "$1" == "mpd" ]]; then
+	music
 elif [[ "$1" == "av" ]]; then
 	actionvol
 elif [[ "$1" == "bat" ]]; then
