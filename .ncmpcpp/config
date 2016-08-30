@@ -29,8 +29,8 @@ now_playing_suffix = "$2$/u$2"
 #song_columns_list_format = "(5)[]{} (22)[red]{a} (20)[white]{t|f} (49)[blue]{b} (4)[red]{l}"
 song_list_format = "$6{%A}|{%a}$8 $4::$8 $3%t$8 {$R%l $4}"
 
-color1 = "white"
-color2 = "black"
+#color1 = "white"
+#color2 = "black"
 
 mouse_support = "yes"
 header_visibility = "no"
@@ -40,3 +40,21 @@ autocenter_mode = "yes"
 titles_visibility = "no"
 enable_window_title = "no"
 discard_colors_if_item_is_selected = "yes"
+
+##### colors definitions #####
+#
+colors_enabled = yes
+empty_tag_color = "white"
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "black"
+state_flags_color = "white"
+main_window_color = "white"
+color1 = "white"
+color2 = "green"
+
+alternative_ui_separator_color = "black"
+active_column_color = "magenta"           ###
+
+window_border_color = "white"
+active_window_border = "white"
