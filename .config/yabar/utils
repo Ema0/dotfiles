@@ -87,7 +87,7 @@ battery(){
 }
 
 music(){
-	SONG=$(mpc -f "[%artist% - ]%title%]]" | head -n 1)
+	SONG=$(mpc -f "%artist%%title%" | head -n 1)
 	STOPPED="volume: n/a   repeat: off   random: off   single: off   consume: off"
 	NONE="  -  "
 	if [[ -e /tmp/mpd.fifo ]] && [[ $SONG != $STOPPED ]]; then
