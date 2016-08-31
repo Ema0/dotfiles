@@ -7,8 +7,8 @@ Xcursor.theme: OpenzoneIceSlim
 URxvt*scrollBar: false
 !URxvt*boldFont: xft:Terminus:size=8,xft:tewi
 !URxvt*font: xft:Terminus:regular:size=8,xft:tewi
-URxvt*font: xft:Hack-9
-URxvt*boldFont: xft:Hack-9
+URxvt*font: xft:Hack-Regular:size=9
+URxvt*boldFont: xft:Hack-Bold:size=9
 !URxvt*lineSpace: 1
 !zemnl*letterSpace:1
 
