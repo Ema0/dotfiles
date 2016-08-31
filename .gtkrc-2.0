@@ -1,9 +1,9 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/zemnl/.gtkrc-2.0.mine"
+include "/home/emnl/.gtkrc-2.0.mine"
 gtk-theme-name="Arc-Darker"
-gtk-icon-theme-name="Papirus-Arc-Darker-GTK"
+gtk-icon-theme-name="Papirus-Arc-Dark-GTK"
 gtk-font-name="Overpass Light 9"
 gtk-cursor-theme-name="OpenZone_Ice_Slim"
 gtk-cursor-theme-size=0

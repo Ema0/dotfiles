@@ -14,7 +14,7 @@ fi
 xset +fp ~/.fonts           # Prepend a custom font path to Xorg's list of known font paths
 
 xsetroot -solid black
-setxkbmap -layout us -variant altgr-intl
+setxkbmap -layout it
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
