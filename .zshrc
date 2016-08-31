@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/zemnl/.oh-my-zsh
+export ZSH=/home/emnl/.oh-my-zsh
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Set name of the theme to load.

@@ -53,8 +53,6 @@ compton -b &
 
 nm-applet &
 
-radiotray &
-
 caffeine &
 
 #dunst &
