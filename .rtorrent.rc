@@ -19,16 +19,14 @@ max_peers_seed = 15
 
 
 # Default directory to save the downloaded torrents.
-#directory = /home/zemnl/Downloads/Torrents
-directory = /run/media/zemnl/AC50C25750C227C2/Downloads
+directory = /home/emnl/Dowloads/Torrents
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-#session = /home/zemnl/Downloads/Torrents/.session
-session = /run/media/zemnl/AC50C25750C227C2/Session
+session = /home/emnl/Downloads/Torrents/.session
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start=/home/zemnl/Downloads/Torrents/.watch/\*.torrent
+schedule = watch_directory,5,5,load_start=/home/emnl/Downloads/Torrents/.watch/\*.torrent
 schedule = untied_directory,5,5,stop_untied=
 
 
