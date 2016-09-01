@@ -53,7 +53,7 @@ compton -b &
 
 nm-applet &
 
-radiotray &
+#radiotray &
 
 caffeine &
 
