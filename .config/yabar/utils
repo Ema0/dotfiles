@@ -87,12 +87,12 @@ battery(){
 }
 
 music(){
-	SONG=$(mpc -f "%artist%%title%" | head -n 1)
+	SONG=$(mpc -f "%title%" | head -n 1)
 	STOPPED="volume: n/a   repeat: off   random: off   single: off   consume: off"
 	NONE="  -  "
 	NONE2=""
 	if [[ -e /tmp/mpd.fifo ]] && [[ $SONG != $STOPPED ]]; then
-		if [[ $SONG = $NONE ]] || [[ $SONG = $NONE2 ]]; then
+		if [[ $SONG == $NONE ]] || [[ $SONG == $NONE2 ]]; then
 			SONG=$(mpc -f "%name%" | head -n 1)
 		fi
 		echo -n "!Y U 0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
