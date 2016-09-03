@@ -55,43 +55,9 @@ URxvt.colorBD:                  #CFCFCF
 URxvt.colorIT:                  #686868
 
 ! special
-*.foreground:   #c5c8c6
 zemnl.foreground: #c5c8c6
-*.background:   #1d1f21
 !*.background: #121518
 *.cursorColor:  #c5c8c6
-
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
-
-! red
-*.color1:       #a54242
-*.color9:       #cc6666
-
-! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
-
-! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
-
-! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
-
-! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #707880
-*.color15:      #c5c8c6
 
 ! black
 zemnl.color0:       #3d3d3d
@@ -162,3 +128,26 @@ rofi.regex: true
 rofi.fixed-num-lines: 10
 rofi.terminal: urxvt
 rofi.line-margin: 5
+
+#include </home/zemnl/.termcolors/zu>
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  wwht
+
+*color0:      blk
+*color8:      bblk
+*color1:      red
+*color9:      rred
+*color2:      grn
+*color10:     ggrn
+*color3:      ylw
+*color11:     yylw
+*color4:      blu
+*color12:     bblu
+*color5:      mag
+*color13:     mmag
+*color6:      cyn
+*color14:     ccyn
+*color7:      wht
+*color15:     wwht
