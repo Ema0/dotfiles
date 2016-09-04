@@ -20,7 +20,7 @@ execute_console udisksctl -b /dev/sdb2
 filter 
 cd 
 cd .wallpaper/
-delete
 rename Downloads
 rename 2bwm
 
+delete

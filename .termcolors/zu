@@ -1,7 +1,6 @@
 #define bg    [92]#1d1f21
 #define blk   #282a2e
-#define fg2    #c5c8c6
-#define fg    #a0a3a5
+#define fg    #c5c8c6
 #define bblk  #373b41
 #define red   #a54242
 #define rred  #cc6666

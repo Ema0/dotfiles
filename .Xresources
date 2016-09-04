@@ -7,8 +7,8 @@ Xcursor.theme: OpenzoneIceSlim
 URxvt*scrollBar: false
 !URxvt*boldFont: xft:Terminus:size=8,xft:tewi
 !URxvt*font: xft:Terminus:regular:size=8,xft:tewi
-URxvt*font: xft:Hack-Regular:size=10
-URxvt*boldFont: xft:Hack-Bold:size=10
+URxvt*font: xft:Hack-Regular:size=10,xft:Pragmata Pro
+URxvt*boldFont: xft:Hack:bold:size=10,xft:Pragmata Pro
 !URxvt*lineSpace: 1
 !zemnl*letterSpace:1
 
@@ -92,7 +92,8 @@ zemnl.color7:       #9ca1a5
 zemnl.color15:      #c5c8c6
 
 z.background:  #1a1b22
-z.foreground: #d4cec2
+!z.foreground: #d4cec2
+z.foreground: #a6a5af
 z.color0:                #1f2033
 z.color1:                #60475a
 z.color2:                #475e69
@@ -105,10 +106,14 @@ z.color8:                #42384e
 z.color9:                #7c616e
 z.color10:               #43505d
 z.color11:               #d5c9b8
-z.color12:               #373b56
+!z.color12:               #373b56
+z.color12:				 #5f5d90
 z.color13:               #a09aa2
 z.color14:               #8e8d9b
-z.color15:               #d4cec2
+z.color15:               #c8c0d2
+z.font: xft:Pragmata\ Pro:bold:pixelsize=13
+z.boldFont: xft:Pragmata\ Pro:bold:pixelsize=13
+z.letterSpace: -1
 
 rofi.font: Liberation 10
 rofi.opacity: 85
