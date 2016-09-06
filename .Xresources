@@ -119,9 +119,9 @@ rofi.font: PragmataPro Bold 10.5
 rofi.opacity: 100
 rofi.color-enabled: true
 rofi.color-window: argb:991a1b22,argb:991a1b22,argb:991a1b22
-rofi.color-normal: argb:#1d1d1d,#d5d4de,argb:0014141,argb:00656c94,#6d6ac1
+rofi.color-normal: argb:#1d1d1d,#d5d4de,argb:0014141,argb:701a1b22,#6d6ac1
 rofi.color-active: argb:50585c78,#d5d4de,argb:0eee8d5,argb:994f5a9a,#ffffff
-rofi.color-urgent: argb:c6676e9c,argb:00da6462,argb:c6eee8d5,argb:00da6462,argb:c6fdf6e3
+rofi.color-urgent: argb:c6676e9c,argb:00da6462,argb:c6eee8d5,argb:ffda6462,argb:c6fdf6e3
 rofi.fullscreen: true
 rofi.lines: 10
 rofi.padding: 335
