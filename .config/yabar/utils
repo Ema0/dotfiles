@@ -30,7 +30,7 @@ volume(){
 	if [[ "$STATUS" == "on" ]]; then
 		echo -n "<span color='#542e71'></span>$V%"
 	else
-		echo -n !Y BG 0xFF542e71 FG 0xFFFFFFFF Y! 
+		echo -n !Y BG 0xFF542e71 FG 0xFFD0CFDC Y! 
 	fi
 }
 
