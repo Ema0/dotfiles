@@ -115,7 +115,7 @@ z.font: xft:Pragmata\ Pro:bold:pixelsize=13
 z.boldFont: xft:Pragmata\ Pro:bold:pixelsize=13
 z.letterSpace: -1
 
-rofi.font: Liberation 10
+rofi.font: PragmataPro Bold 10.5
 rofi.opacity: 85
 rofi.color-window: argb:c61d1d1d,argb:c61d1d1d,argb:c61d1d1d
 rofi.color-normal: argb:01d1d1d,#f8f8f8,argb:0414141,argb:c674afc2,#ffffff
