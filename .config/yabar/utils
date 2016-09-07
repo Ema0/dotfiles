@@ -95,7 +95,7 @@ music(){
 		if [[ $SONG == $NONE ]] || [[ $SONG == $NONE2 ]]; then
 			SONG=$(mpc -f "%name%" | head -n 1)
 		fi
-		echo -n "!Y U 0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
+		echo -n "!Y BG0xFF1A1B22 FG0xFFD0CFDC U0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
 	else
 		echo -n "!Y U 0xFF1B1B1B Y!";
 	fi
