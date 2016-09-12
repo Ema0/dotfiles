@@ -6,19 +6,19 @@ workspace () {
     tre=""
     quattro=""
     cinque=""
-    d1="%{F#b3cbb9} $uno %{F-}$due $tre $quattro $cinque"
-    d2=" $uno %{F#84a9c0}$due %{F-}$tre $quattro $cinque"
-    d3=" $uno $due%{F#6a66a3} $tre %{F-}$quattro $cinque"
-    d4=" $uno $due $tre%{F#542e71} $quattro %{F-}$cinque"
-    d5=" $uno $due $tre $quattro%{F#6f00ff} $cinque %{F-}"
+    d1="%{F#b3cbb9}$uno%{F-}$due$tre$quattro$cinque"
+    d2="$uno%{F#84a9c0}$due%{F-}$tre$quattro$cinque"
+    d3="$uno$due%{F#6a66a3}$tre%{F-}$quattro$cinque"
+    d4="$uno$due$tre%{F#542e71}$quattro%{F-}$cinque"
+    d5="$uno$due$tre$quattro%{F#6f00ff}$cinque %{F-}"
     res=$(echo $(xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'))
 
     case $res in
-        "0") echo -n "%{U#b3cbb9}$d1";;
-        "1") echo -n "%{U#84a9c0}$d2";;
-        "2") echo -n "%{U#6a66a3}$d3";;
-        "3") echo -n "%{U#542e71}$d4";;
-        "4") echo -n "%{U#6f00ff}$d5";;
+        "0") echo -n "%{U#b3cbb9} $d1";;
+        "1") echo -n "%{U#84a9c0} $d2";;
+        "2") echo -n "%{U#6a66a3} $d3";;
+        "3") echo -n "%{U#542e71} $d4";;
+        "4") echo -n "%{U#6f00ff} $d5";;
     esac
 }
 
