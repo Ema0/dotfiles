@@ -33,11 +33,9 @@ urxvtd -q -o -f &
 #~/Documents/code/scripts/w.sh &
 systemctl --user start X.target &
 
-yabar &
-
-tint2 &
-
 compton -b &
+
+~/Programs/lime &
 
 nm-applet &
 
