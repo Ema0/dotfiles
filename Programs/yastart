@@ -1,0 +1,6 @@
+#!/bin/sh
+killall tint2 && killall yabar;
+sleep 0.3 &
+yabar &
+sleep 0.5 &
+tint2 &

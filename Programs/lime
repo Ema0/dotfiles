@@ -1,0 +1,6 @@
+#!/bin/zsh
+killall tint2 && killall lemonbar && killall conky;
+sleep 0.3 &
+conky |  lemonbar -g x20 -B '#66777777' -f "PragmataPro:Bold:size=10.5" -f "Siji" -F '#dfdaeb' -u 1 | zsh &
+sleep 0.5 &
+tint2 &
