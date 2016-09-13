@@ -20,8 +20,8 @@ ${if_existing /tmp/mpd.fifo}${voffset 0}%{F\#84a9c0}%{U\#84a9c0}  %{F-}${scro
 %{r}\
 %{F\#b3cbb9}%{U\#b3cbb9} %{F-}${cpu cpu0}% \
 %{F\#84a9c0}%{U\#84a9c0}  %{F-}${mem} \
-%{F\#6a66a3}%{U\#6a66a3}  %{F-}${voffset -2}${downspeed enp2s0} \
-%{F\#6a66a3} %{F-}${upspeed enp2s0}\
+%{F\#6a66a3}%{U\#6a66a3}  %{F-}${voffset -2}${downspeed enp2s0} \
+%{F\#6a66a3} %{F-}${upspeed enp2s0}\
 %{A4:amixer set Master 5%+;killall -SIGUSR1 conky:}%{A2:amixer -D pulse set Master 1+ toggle;killall -SIGUSR1 conky:}%{A5:amixer set Master 5%-;killall -SIGUSR1 conky:} ${exec ~/Programs/utils vol}  %{A}%{A}%{A}\
 %{F\#6f00ff}%{U\#6f00ff}  %{F-}${exec date +%H%M} 
 ]]
