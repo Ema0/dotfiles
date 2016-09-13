@@ -10,7 +10,7 @@ workspace () {
     d2="$uno%{F#84a9c0}$due%{F-}$tre$quattro$cinque"
     d3="$uno$due%{F#6a66a3}$tre%{F-}$quattro$cinque"
     d4="$uno$due$tre%{F#542e71}$quattro%{F-}$cinque"
-    d5="$uno$due$tre$quattro%{F#6f00ff}$cinque %{F-}"
+    d5="$uno$due$tre$quattro%{F#6f00ff}$cinque%{F-}"
     res=$(echo $(xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'))
 
     case $res in
