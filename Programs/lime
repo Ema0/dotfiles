@@ -1,6 +1,6 @@
 #!/bin/zsh
 killall tint2 && killall lemonbar && killall conky;
 sleep 0.3 &
-conky -d |  lemonbar -g x20 -B '#bb1a1b22' -f "PragmataPro:Bold:size=10.5" -f "Siji" -f "FontAwesome:size=11" -F '#dfdaeb' -u 1 | zsh &
+conky -d |  lemonbar -g x20 -B '#bb1a1b22' -f "PragmataPro:Bold:size=10.5" -f "FontAwesome:size=11" -F '#dfdaeb' -u 1 | zsh &
 sleep 0.5 &
 tint2 &
