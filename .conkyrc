@@ -15,8 +15,8 @@ conky.config = {
 
 
 conky.text = [[
-%{A4:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) + 1) % 5); killall -SIGUSR1 conky:}%{A5:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) - 1) % 5);killall -SIGUSR1 conky:}${exec ~/Programs/utils ws}%{A}%{A}\
-${if_existing /tmp/mpd.fifo}${voffset 0}%{F\#84a9c0}%{+u}%{U\#84a9c0} %{F-}${scroll 30 $mpd_smart}$endif\
+%{+u}%{A4:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) + 1) % 5); killall -SIGUSR1 conky:}%{A5:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) - 1) % 5);killall -SIGUSR1 conky:}${exec ~/Programs/utils ws}%{A}%{A}\
+${if_existing /tmp/mpd.fifo}${voffset 0}%{F\#84a9c0}%{U\#84a9c0} %{F-}${scroll 30 $mpd_smart}$endif\
 %{r}\
 %{F\#b3cbb9}%{U\#b3cbb9}%{F-}${cpu cpu0}% \
 %{F\#84a9c0}%{U\#84a9c0} %{F-}${mem} \
