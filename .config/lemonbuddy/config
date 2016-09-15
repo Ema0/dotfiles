@@ -1,0 +1,136 @@
+[settings]
+  ; Limit the amount of events sent to lemonbar within a set timeframe:
+  ; - "Allow <throttle_limit> updates within <throttle_ms> of time"
+  ; Default values:
+  throttle_limit = 5
+  throttle_ms = 50
+
+  [bar/main]
+  ; Use the following command to list available outputs:
+  ; $ xrandr -q | grep " connected" | cut -d ' ' -f1
+  monitor = VGA-0
+
+  ; Omit the % to specify the width in pixels
+  width = 100%
+  height = 20
+
+  ; Offset value defined in pixels
+  offset_x = 0
+  offset_y = 0
+
+  ; Put the bar at the bottom of the screen
+  bottom = false
+
+  ; Weather to force docking mode or not
+  dock = true
+
+  ; This value is used as a multiplier when adding spaces between elements
+  spacing = 0
+
+  ; Height of under-/overline
+  lineheight = 1
+
+  ; Colors
+  background = #bb1a1b22
+  foreground = #dfdaeb
+  linecolor = #00ffffff
+
+  ; Amount of spaces to add at the start/end of the whole bar
+  padding_left = 1
+  padding_right = 1
+
+  ; Amount of spaces to add before/after each module
+  module_margin_left = 0
+  module_margin_right = 0
+
+  ; Fonts are defined using: <FontName>;<Offset>
+  font-0 = PragmataPro:weight=bold:size=10.5;0
+  font-1 = FontAwesome:size=11;0
+
+  ; The separator will be inserted between the output of each module
+  separator =
+
+  ; This value is used by Lemonbar and it specifies the clickable
+  ; areas available -> %{A:action:}...%{A}
+  clickareas = 30
+
+  ; Value to be used to set the WM_NAME atom
+  ; This defaults to "lemonbuddy-[BAR]_[MONITOR]"
+  wm_name = mybar
+
+  ; Locale used to localize module output (for example date)
+  ;locale = sv_SE.UTF-8
+
+  ; Define what modules to output
+  modules-left = ws mpd
+  modules-center =
+  modules-right = cpu ram vol clock
+
+[module/cpu]
+  type = internal/cpu
+  label =%{F#b3cbb9} %{F#dfdaeb} %percentage%
+  format-underline = #b3cbb9
+  format-padding = 1
+[module/ram]
+  type = internal/memory
+  format =%{F#84a9c0}   %{F#dfdaeb} <label>
+  label = %percentage_used%
+  format-underline = #84a9c0
+  format-padding = 1
+
+  [module/clock]
+type = internal/date
+date =%%{F#6f00ff}  %%{F#dfdaeb} %H%M
+format-underline = #ff6f00ff
+date_detailed =%%{F#6f00ff}  %%{F#dfdaeb} %Y-%m-%d %H%M
+format-padding = 1
+
+[module/wired]
+type = internal/network
+interval = 2.0
+interface = enp2s0
+label-connected = %linkspeed%
+
+[module/vol]
+type = internal/volume
+label-volume-padding = 1
+ramp-volume-padding = 1
+format-volume =  <ramp-volume> <label-volume>
+ramp-volume-0 = 
+ramp-volume-0-foreground = #aa542e71
+ramp-volume-1 = 
+ramp-volume-1-foreground = #bb542e71
+ramp-volume-2 = 
+ramp-volume-2-foreground = #dd542e71
+ramp-volume-3 = 
+ramp-volume-3-foreground = #ff542e71
+
+label-muted =   muted
+label-muted-foreground = #ff542e71
+label-volume-foreground = #dfdaeb
+ramp-volume-3-underline = #ff542e71
+ramp-volume-2-underline = #ff542e71
+ramp-volume-1-underline = #ff542e71
+ramp-volume-0-underline = #ff542e71
+label-volume-underline = #ff542e71
+label-muted-underline = #ff542e71
+
+[module/ws]
+type = custom/script
+exec = echo $(~/.config/lemonbuddy/utils ws)
+interval = 0.5
+format-padding = 1
+click-left = ~/.config/lemonbuddy/utils up
+scroll-up = ~/.config/lemonbuddy/utils up
+scroll-down = ~/.config/lemonbuddy/utils down
+
+[module/mpd]
+  type = internal/mpd
+  host = 127.0.0.1
+  port = 6600
+  label-offline =%{U#0084a9c0}
+  format-online = <label-song>
+  format-online-padding = 0
+  label-song = %{F#84a9c0} %{F#dfdaeb} %title%
+  format-online-underline = #84a9c0
+  format-offline-underline = #00ffffff
