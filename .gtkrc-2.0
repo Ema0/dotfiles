@@ -4,7 +4,7 @@
 include "/home/zemnl/.gtkrc-2.0.mine"
 gtk-theme-name="Arc-Darker"
 gtk-icon-theme-name="Papirus-Arc-Darker-GTK"
-gtk-font-name="Overpass Light 9"
+gtk-font-name="Overpass 9"
 gtk-cursor-theme-name="OpenZone_Ice_Slim"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
@@ -14,6 +14,6 @@ gtk-menu-images=0
 gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
-gtk-xft-hinting=0
-gtk-xft-hintstyle="hintnone"
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
 gtk-xft-rgba="rgb"
