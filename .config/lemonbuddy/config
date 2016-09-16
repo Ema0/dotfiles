@@ -62,9 +62,9 @@
   ;locale = sv_SE.UTF-8
 
   ; Define what modules to output
-  modules-left = ws mpd
+  modules-left = ws
   modules-center =
-  modules-right = cpu ram vol clock
+  modules-right = cpu ram du vol clock
 
 [module/cpu]
   type = internal/cpu
@@ -123,6 +123,16 @@ format-padding = 1
 click-left = ~/.config/lemonbuddy/utils up
 scroll-up = ~/.config/lemonbuddy/utils up
 scroll-down = ~/.config/lemonbuddy/utils down
+
+[module/du]
+type = custom/script
+exec = echo $(~/.config/lemonbuddy/utils bat)
+interval = 1
+format-padding = 1
+click-left = ~/.config/lemonbuddy/utils up
+scroll-up = ~/.config/lemonbuddy/utils up
+scroll-down = ~/.config/lemonbuddy/utils down
+
 
 [module/mpd]
   type = internal/mpd

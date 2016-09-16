@@ -98,6 +98,11 @@ up(){
 down(){
 	xdotool set_desktop $(expr $(expr $(xdotool get_desktop) - 1) % 5);
 }
+
+du(){
+	RES=$(awk '{if(l1){print ($2-l1)/1024"kB/s",($10-l2)/1024"kB/s"} else{l1=$2; l2=$10;}}' <(grep enp2s0 /proc/net/dev) <(sleep 1; grep enp2s0 /proc/net/dev))
+	echo -n $RES
+}
 if [[ "$1" == "up" ]]; then
     up
 elif [[ "$1" == "down" ]]; then
@@ -105,7 +110,7 @@ elif [[ "$1" == "down" ]]; then
 elif [[ "$1" == "av" ]]; then
 	actionvol
 elif [[ "$1" == "bat" ]]; then
-    battery
+    du
 elif [[ "$1" == "ws" ]]; then
     	workspace
 fi

@@ -35,9 +35,7 @@ systemctl --user start X.target &
 
 compton -b &
 
-#~/Programs/lime &
-
-lemonbuddy_wrapper main &
+~/Programs/lime &
 
 nm-applet &
 
