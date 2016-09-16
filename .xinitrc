@@ -11,18 +11,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xset +fp ~/.fonts           # Prepend a custom font path to Xorg's list of known font paths
+#xset +fp ~/.fonts           # Prepend a custom font path to Xorg's list of known font paths
 
-xsetroot -solid black
 setxkbmap -layout us -variant altgr-intl
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 export XDG_CONFIG_HOME="$HOME/.config"
-
-
-xsetroot -solid "#000000" &
 
 xsetroot -cursor_name left_ptr &
 
