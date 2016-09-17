@@ -95,7 +95,7 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
 setopt HIST_IGNORE_DUPS
 eval "$(dircolors ~/.dircolors)"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-winhd="/run/media/zemnl/AC50C25750C227C2"
+winhd="/run/media/$USER/AC50C25750C227C2"
 man() {
 	if [ "$TERM" = 'linux' ]; then
 		env \
