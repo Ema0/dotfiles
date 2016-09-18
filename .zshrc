@@ -1,9 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/zemnl/.oh-my-zsh
 export XDG_CONFIG_HOME="$HOME/.config"
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
-autoload -Uz compinit
-compinit
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -97,7 +95,7 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
 setopt HIST_IGNORE_DUPS
 eval "$(dircolors ~/.dircolors)"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-alias winhd='/run/media/$USER/AC50C25750C227C2'
+winhd=/run/media/$USER/AC50C25750C227C2
 alias vim='nvim'
 alias vi='/usr/bin/vim'
 mnt(){
@@ -129,3 +127,4 @@ man() {
 					/usr/bin/man "$@"
 	fi
 }
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
