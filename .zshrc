@@ -95,7 +95,15 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
 setopt HIST_IGNORE_DUPS
 eval "$(dircolors ~/.dircolors)"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-winhd="/run/media/$USER/AC50C25750C227C2"
+alias winhd='/run/media/$USER/AC50C25750C227C2'
+alias vim='nvim'
+alias vi='/usr/bin/vim'
+mnt(){
+	udisksctl mount --block-device $1
+}
+umnt(){
+	udisksctl unmount --block-device $1
+}
 man() {
 	if [ "$TERM" = 'linux' ]; then
 		env \
