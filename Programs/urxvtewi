@@ -6,7 +6,7 @@ if [[ $1 == "z" ]]; then
 	elif [[ $1 == "l" ]]; then
 	urxvtc  -name z -fn xft:Hack-10 -fb xft:Hack:bold:10 -geometry 198x55 -e zsh -c "tmux attach-session -d" &
 	elif [[ $1 == "tr" ]]; then
-	urxvtc -depth 32 -bg rgba:1a00/1b00/2200/ddcc -name z -e zsh -c "tmux attach-session -d" &
+	urxvtc -fn xft:Terminus:size=10,xft:Tewi -fb xft:Terminus:size=10,xft:Tewi -letsp 0 -name z -e zsh -c "tmux attach-session -d" &
     else
     urxvtc -name z  -e zsh -c "tmux attach-session -d" &
 
