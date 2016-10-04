@@ -100,30 +100,43 @@
         font-family: var(--tab-fonts) !important;font-weight: bold;font-size: var(--tab-font-size);
         height: var(--tab-height) !important; min-height: var(--tab-height) !important;
         text-align: var(--tab-text-align) !important;
+        margin-top: 5px!important;
     }
-
+    .tabbrowser-tab .tab-label ,.tabbrowser-tab .tab-close-button,.tabbrowser-tab .tab-icon-sound{margin-bottom: 6px!important;}
+    .tabbrowser-tab .tab-throbber {margin-bottom: 6px!important;}
    .tabbrowser-tab[fadein]:not([pinned]) { min-width: 100px !important; max-width: 200px /*100%*/ !important; }
     .tabbrowser-tab[fadein][pinned] { min-width: 40px !important; max-width: 40px /*100%*/ !important; padding-left:3px!important;}
     .tabbrowser-tab:not([pinned]) label { padding: 0 0 0 0 !important; }
     #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-icon-image {
        display: none!important;
     }
-    
+    #tabbrowser-tabs .tabbrowser-tab[pinned] .tab-icon-image {
+       margin-bottom: 4px!important;
+    }
      #TabsToolbar, #tabbrowser-tabs {
         -moz-appearance: none !important;
-        height: 30px !important; min-height: 30px!important;
+        height: 28px !important; min-height: 28px!important;
         margin: 0px!important;
     }
    
     .tabbrowser-tab::before, .tabbrowser-tab::after { background: none !important; opacity: 1 !important; visibility: visible !important; }
      #navigator-toolbox::after { height: 0px !important; }
    
-  .tabbrowser-tab[pinned] * {
+  #tabbrowser-tabs .tabbrowser-tab[pinned] * {
     background: none !important; 
     margin-right:0px!important;
     margin-left: 0px!important;
     }
-    .tabbrowser-tab[selected="true"][pinned] {
+    #tabbrowser-tabs .tabbrowser-tab[pinned]:hover {
+    background: #4d515b !important;
+    margin-right:0px!important;
+    margin-left: 0px!important;
+    }
+    #tabbrowser-tabs .tabbrowser-tab[selected="true"][pinned] {
+        background: #1a1b22 !important;
+        width: 20px!important;
+    }
+    #tabbrowser-tabs .tabbrowser-tab[selected="true"][pinned]:hover {
         background: #1a1b22 !important;
         width: 20px!important;
     }
@@ -131,7 +144,7 @@
         background: none !important;
     }
    
-    .tabbrowser-tab[pinned] label        { display:none !important; }
+    .tabbrowser-tab[pinned] label  { display:none !important; }
     .tab-background-start[pinned]{display: none!important;}
     .tab-background-end[pinned] {display: none!important;}
     
