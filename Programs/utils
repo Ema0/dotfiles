@@ -64,7 +64,7 @@ battery(){
     elif [[ "$bat_status" == "Full" ]]; then
 		echo -n "%{U#92D198}%{F#92D198}%{F-} $bat_level%";
     elif [[ "$bat_status" == "Discharging" || "$bat_status" = "Unknown" ]]; then
-		if [[ $bat_level == "100" ]]; then
+		if [[ $bat_level == "100" || $bat_level == "100%" ]]; then
 			echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level%";
         elif [[ $bat_level>80 ]]; then
             echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level ($bat_life)";
