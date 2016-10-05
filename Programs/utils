@@ -33,9 +33,9 @@ volume(){
 	STATUS=$(amixer -M get Master | sed -n 's/^.*\[\([a-z]\+\).*$/\1/p'| uniq)
 
 	if [[ "$STATUS" == "on" ]]; then
-		echo -n "%{F#C7BCE8}%{U#9EA6E8}  %{F-}$V%"
+		echo -n "%{F#C7BCE8}%{U#9EA6E8} %{F-}$V%"
 	else
-		echo -n %{F#C7BCE8}%{U#9EA6E8} %{F-} Muted
+		echo -n %{F#C7BCE8}%{U#9EA6E8}%{F-} Muted
 	fi
 }
 
