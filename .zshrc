@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/zemnl/.oh-my-zsh
+export ZSH=/home/emnl/.oh-my-zsh
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Set name of the theme to load.
@@ -95,7 +95,15 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
 setopt HIST_IGNORE_DUPS
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+alias vim='nvim'
+alias vi='/usr/bin/vim'
+eval "$(dircolors ~/.dircolors)"
+mnt(){
+	udisksctl mount --block-device $1
+}
+umnt(){
+	udisksctl unmount --block-device $1
+}
 man() {
 	if [ "$TERM" = 'linux' ]; then
 		env \

@@ -60,33 +60,25 @@ battery(){
     bat_life=$(acpi | awk '{print $5}' | awk '{print substr($0, 0, 5)}')
 
     if [[ "$bat_status" == "Charging" ]]; then
-        echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level ($bat_life)";
+        echo -n "%{U#5f819d}%{F#5f819d}%{F-} $bat_level ($bat_life)";
     elif [[ "$bat_status" == "Full" ]]; then
-		echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level%";
+		echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level%";
     elif [[ "$bat_status" == "Discharging" || "$bat_status" = "Unknown" ]]; then
 		if [[ $bat_level == "100%" ]]; then
-			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
-        elif [[ $bat_level>90 ]]; then
-            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
-		elif [[ $bat_level>80 ]]; then
-			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
-        elif [[ $bat_level>70 ]]; then
-            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+			echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level ($bat_life)";
+        elif [[ $bat_level>80 ]]; then
+            echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level ($bat_life)";
         elif [[ $bat_level>60 ]]; then
-            echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
-		elif [[ $bat_level>50 ]]; then
-			echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
+            echo -n "%{U#A4DE78} %{F#A4DE78}%{F-} $bat_level ($bat_life)";
  		elif [[ $bat_level>40 ]]; then
-            echo -n "!Y U 0xFFE6CA77 Y!<span color='#E6CA77'></span>$bat_level ($bat_life)";
-   		elif [[ $bat_level>30 ]]; then
-            echo -n "!Y U 0xFFE6AB77 Y!<span color='#E6AB77'></span>$bat_level ($bat_life)";
+            echo -n "%{U#E6CA77} %{F#E6CA77}%{F-} $bat_level ($bat_life)";
 		elif [[ $bat_level>20 ]]; then
-            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
-		elif [[ $bat_level>10 ]]; then
-            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
+            echo -n "%{U#E85A5A} %{F#E85A5A}%{F-} $bat_level ($bat_life)";
 		else
-			notify-send "battery low" -u critical
-			echo -n "!Y U 0xFFa54242 Y!<span color='#a54242'></span>$bat_level ($bat_life)";
+			if [[ $bat_level<10 ]]; then
+				notify-send "battery low" -u critical
+			fi
+			echo -n "%{U#a54242} %{F#a54242}%{F-} $bat_level ($bat_life)";
 		fi
 	fi
 }

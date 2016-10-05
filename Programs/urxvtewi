@@ -1,8 +1,10 @@
 #!/bin/zsh
-if [[ $1 == "z" ]]; then
-    urxvtc -name zemnl -e zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n $USER -s $USER@$HOST" &
-	elif [[ $1 == "n" ]]; then 
+if [[ $1 == "a" ]]; then
+    urxvtc -name z -e zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n $USER -s $USER@$HOST" &
+	elif [[ $1 == "n" ]]; then
 	urxvtc -e zsh -c "tmux attach-session -d" &
+	elif [[ $1 == "z" ]]; then
+	urxvtc -name z -e zsh -c "tmux attach-session -d"
     else
     urxvtc -name z -e zsh -c "tmux attach-session -d" &
 

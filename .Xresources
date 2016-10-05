@@ -7,8 +7,8 @@ Xcursor.theme: OpenzoneIceSlim
 URxvt*scrollBar: false
 !URxvt*boldFont: xft:Terminus:size=8,xft:tewi
 !URxvt*font: xft:Terminus:regular:size=8,xft:tewi
-URxvt*font: xft:Hack-Regular:size=9
-URxvt*boldFont: xft:Hack-Bold:size=9
+URxvt*font: xft:Hack-Regular:size=10,xft:Pragmata Pro
+URxvt*boldFont: xft:Hack:bold:size=10,xft:Pragmata Pro
 !URxvt*lineSpace: 1
 !zemnl*letterSpace:1
 
@@ -36,12 +36,12 @@ zemnl*fading: 0
 !URxvt*blurRadius: 90
 !URxvt*shading: 20
 URxvt*externalBorder: 10
-Xft.dpi:        96
+Xft.dpi:        89x87
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
-Xft.hintstyle:  medium
-Xft.autohint: 0
+Xft.hintstyle:  hintslight
+Xft.autohint: false
 Xft.lcdfilter: lcddefault
 
 
@@ -55,43 +55,9 @@ URxvt.colorBD:                  #CFCFCF
 URxvt.colorIT:                  #686868
 
 ! special
-*.foreground:   #c5c8c6
 zemnl.foreground: #c5c8c6
-*.background:   #1d1f21
 !*.background: #121518
 *.cursorColor:  #c5c8c6
-
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
-
-! red
-*.color1:       #a54242
-*.color9:       #cc6666
-
-! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
-
-! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
-
-! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
-
-! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #707880
-*.color15:      #c5c8c6
 
 ! black
 zemnl.color0:       #3d3d3d
@@ -126,7 +92,8 @@ zemnl.color7:       #9ca1a5
 zemnl.color15:      #c5c8c6
 
 z.background:  #1a1b22
-z.foreground: #d4cec2
+!z.foreground: #d4cec2
+z.foreground: #a6a5af
 z.color0:                #1f2033
 z.color1:                #60475a
 z.color2:                #475e69
@@ -139,26 +106,54 @@ z.color8:                #42384e
 z.color9:                #7c616e
 z.color10:               #43505d
 z.color11:               #d5c9b8
-z.color12:               #373b56
+!z.color12:               #373b56
+z.color12:				 #5f5d90
 z.color13:               #a09aa2
 z.color14:               #8e8d9b
-z.color15:               #d4cec2
+z.color15:               #c8c0d2
+z.font: xft:Pragmata\ Pro:bold:pixelsize=13
+z.boldFont: xft:Pragmata\ Pro:bold:pixelsize=13
+z.letterSpace: -1
 
-rofi.font: Liberation 10
-rofi.opacity: 85
-rofi.color-window: argb:c61d1d1d,argb:c61d1d1d,argb:c61d1d1d
-rofi.color-normal: argb:01d1d1d,#f8f8f8,argb:0414141,argb:c674afc2,#ffffff
-rofi.color-active: argb:c6353535,#ffffff,argb:0eee8d5,argb:c64ca3e1,#ffffff
-rofi.color-urgent: argb:c6fdf6e3,#da6462,argb:c6eee8d5,#da6462,argb:c6fdf6e3
+rofi.font: PragmataPro Bold 10.5
+rofi.opacity: 100
+rofi.color-enabled: true
+rofi.color-window: argb:991a1b22,argb:991a1b22,argb:991a1b22
+rofi.color-normal: argb:#1d1d1d,#d5d4de,argb:0014141,argb:701a1b22,#6d6ac1
+rofi.color-active: argb:50585c78,#d5d4de,argb:0eee8d5,argb:994f5a9a,#ffffff
+rofi.color-urgent: argb:c6676e9c,argb:00da6462,argb:c6eee8d5,argb:ffda6462,argb:c6fdf6e3
 rofi.fullscreen: true
 rofi.lines: 10
-rofi.padding: 334
+rofi.padding: 335
 rofi.separator-style: none
-rofi.width: 1440
-rofi.location: 6
+rofi.width: 30
+rofi.location: 0
 rofi.hide-scrollbar: true
 rofi.modi: run,window,windowcd,ssh
 rofi.regex: true
 rofi.fixed-num-lines: 10
-rofi.terminal: urxvt
+rofi.terminal: urxvtc
 rofi.line-margin: 5
+
+#include </home/emnl/.termcolors/zu>
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  wwht
+
+*color0:      blk
+*color8:      bblk
+*color1:      red
+*color9:      rred
+*color2:      grn
+*color10:     ggrn
+*color3:      ylw
+*color11:     yylw
+*color4:      blu
+*color12:     bblu
+*color5:      mag
+*color13:     mmag
+*color6:      cyn
+*color14:     ccyn
+*color7:      wht
+*color15:     wwht

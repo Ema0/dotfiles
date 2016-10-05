@@ -30,7 +30,7 @@ urxvtd -q -o -f &
 #~/Documents/code/scripts/w.sh &
 systemctl --user start X.target &
 
-lime &
+~/Programs/lime &
 
 #xmobar &
 
