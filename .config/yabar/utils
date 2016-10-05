@@ -10,7 +10,7 @@ workspace () {
     d2="$uno<span color='#84a9c0'>$due</span>$tre$quattro$cinque"
     d3="$uno$due<span color='#6a66a3'>$tre</span>$quattro$cinque"
     d4="$uno$due$tre<span color='#542e71'>$quattro</span>$cinque"
-    d5="$uno$due$tre$quattro<span color='#59b347'>$cinque</span>"
+    d5="$uno$due$tre$quattro<span color='#6f00ff'>$cinque</span>"
     res=$(echo $(xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'))
 
     case $res in
@@ -87,12 +87,13 @@ battery(){
 }
 
 music(){
-	SONG=$(mpc -f "%artist%%title%" | head -n 1)
+	SONG=$(mpc -f "%title%" | head -n 1)
 	STOPPED="volume: n/a   repeat: off   random: off   single: off   consume: off"
 	NONE="  -  "
+	NONE2=""
 	if [[ -e /tmp/mpd.fifo ]] && [[ $SONG != $STOPPED ]]; then
-		if [[ $SONG = $NONE ]]; then
-			SONG="..."
+		if [[ $SONG == $NONE ]] || [[ $SONG == $NONE2 ]]; then
+			SONG=$(mpc -f "%name%" | head -n 1)
 		fi
 		echo -n "!Y U 0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
 	else
