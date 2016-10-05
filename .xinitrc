@@ -11,9 +11,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xset +fp ~/.fonts           # Prepend a custom font path to Xorg's list of known font paths
-
-xsetroot -solid black
 setxkbmap -layout it
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
@@ -37,11 +34,11 @@ urxvtd -q -o -f &
 #systemctl --user start feh-wallpaper.timer &
 systemctl --user start X.target &
 
-yabar &
+lime &
 
 #xmobar &
 
-tint2 &
+#tint2 &
 
 #2bwm &
 

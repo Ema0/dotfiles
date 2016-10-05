@@ -1,0 +1,120 @@
+#!/bin/zsh
+
+workspace () {
+    #uno=""
+	uno="1"
+    #due=""
+	due="2"
+    #tre=""
+	tre="3"
+    #quattro=""
+	quattro="4"
+    #cinque=""
+	cinque="5"
+    d1="%{F#b3cbb9} $uno %{F-}$due $tre $quattro $cinque"
+    d2="$uno%{F#84a9c0} $due %{F-}$tre $quattro $cinque"
+    d3="$uno $due%{F#938FC7} $tre %{F-}$quattro $cinque"
+    d4="$uno $due $tre%{F#B9D7D9} $quattro %{F-}$cinque"
+    d5="$uno $due $tre $quattro%{F#B28BF0} $cinque %{F-}"
+    res=$(echo $(xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'))
+
+    case $res in
+        "0") echo -n "%{U#b3cbb9}$d1 ";;
+        "1") echo -n "%{U#84a9c0} $d2 ";;
+        "2") echo -n "%{U#938FC7} $d3 ";;
+        "3") echo -n "%{U#B9D7D9} $d4 ";;
+        "4") echo -n "%{U#B28BF0} $d5";;
+    esac
+}
+
+volume(){
+	V=$(amixer -M  get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
+
+	STATUS=$(amixer -M get Master | sed -n 's/^.*\[\([a-z]\+\).*$/\1/p'| uniq)
+
+	if [[ "$STATUS" == "on" ]]; then
+		echo -n "%{F#C7BCE8}%{U#9EA6E8}  %{F-}$V%"
+	else
+		echo -n %{F#C7BCE8}%{U#9EA6E8} %{F-} Muted
+	fi
+}
+
+actionvol(){
+	#this is used only in xmobar. NEVER IN YABAR!!!
+
+    V=$(amixe r get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
+
+    STATUS=$(amixer get Master | sed -n 's/^.*\[\([a-z]\+\).*$/\1/p'| uniq)
+
+    if [[ "$STATUS" == 'on' ]]
+    then
+        echo -n "<action= \`urxvtc -e alsamixer\` button=3><action=\`amixer set Master 5%+\` button=4><action=\`amixer set Master 5%-\` button=5><action=\`amixer -D pulse set Master 1+ toggle\` button=2><fc=#542e71></fc>$V%</action></action></action></action>"
+    else
+    	echo -n "<action=\`amixer -D pulse set Master 1+ toggle\` button=2> <fc=#FFFFFF,#542e71>   </fc></action>"
+    fi
+}
+
+battery(){
+    bat_status=$(acpi | awk '{print $3}' | awk '{print substr($0, 0, length($0) - 1)}')
+    bat_level=$(acpi | awk '{print $4}' | awk '{print substr($0, 0, length($0) - 1)}')
+    bat_life=$(acpi | awk '{print $5}' | awk '{print substr($0, 0, 5)}')
+
+    if [[ "$bat_status" == "Charging" ]]; then
+        echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level ($bat_life)";
+    elif [[ "$bat_status" == "Full" ]]; then
+		echo -n "!Y U 0xFF5f819d Y!<span color='#5f819d'></span>$bat_level%";
+    elif [[ "$bat_status" == "Discharging" || "$bat_status" = "Unknown" ]]; then
+		if [[ $bat_level == "100%" ]]; then
+			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>90 ]]; then
+            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>80 ]]; then
+			echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>70 ]]; then
+            echo -n "!Y U 0xFF92D198 Y!<span color='#92D198'></span>$bat_level ($bat_life)";
+        elif [[ $bat_level>60 ]]; then
+            echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>50 ]]; then
+			echo -n "!Y U 0xFFA4DE78 Y!<span color='#A4DE78'></span>$bat_level ($bat_life)";
+ 		elif [[ $bat_level>40 ]]; then
+            echo -n "!Y U 0xFFE6CA77 Y!<span color='#E6CA77'></span>$bat_level ($bat_life)";
+   		elif [[ $bat_level>30 ]]; then
+            echo -n "!Y U 0xFFE6AB77 Y!<span color='#E6AB77'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>20 ]]; then
+            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
+		elif [[ $bat_level>10 ]]; then
+            echo -n "!Y U 0xFFE85A5A Y!<span color='#E85A5A'></span>$bat_level ($bat_life)";
+		else
+			notify-send "battery low" -u critical
+			echo -n "!Y U 0xFFa54242 Y!<span color='#a54242'></span>$bat_level ($bat_life)";
+		fi
+	fi
+}
+
+music(){
+	SONG=$(mpc -f "%title%" | head -n 1)
+	STOPPED="volume: n/a   repeat: off   random: off   single: off   consume: off"
+	NONE="  -  "
+	NONE2=""
+	if [[ -e /tmp/mpd.fifo ]] && [[ $SONG != $STOPPED ]]; then
+		if [[ $SONG == $NONE ]] || [[ $SONG == $NONE2 ]]; then
+			SONG=$(mpc -f "%name%" | head -n 1)
+		fi
+		echo -n "!Y BG0xFF1A1B22 FG0xFFD0CFDC U0xFF6A66A3 Y!<span color='#6a66a3'></span>$SONG ";
+	else
+		echo -n "!Y U 0xFF1B1B1B Y!";
+	fi
+}
+
+
+if [[ "$1" == "vol" ]]; then
+    volume
+elif [[ "$1" == "mpd" ]]; then
+	music
+elif [[ "$1" == "av" ]]; then
+	actionvol
+elif [[ "$1" == "bat" ]]; then
+    battery
+elif [[ "$1" == "ws" ]]; then
+    	workspace
+fi
