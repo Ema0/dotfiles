@@ -101,6 +101,7 @@
         height: var(--tab-height) !important; min-height: var(--tab-height) !important;
         text-align: var(--tab-text-align) !important;
         margin-top: 5px!important;
+        
     }
     .tabbrowser-tab .tab-label ,.tabbrowser-tab .tab-close-button,.tabbrowser-tab .tab-icon-sound{margin-bottom: 6px!important;}
     .tabbrowser-tab .tab-throbber {margin-bottom: 6px!important;}
@@ -116,12 +117,11 @@
      #TabsToolbar, #tabbrowser-tabs {
         -moz-appearance: none !important;
         height: 28px !important; min-height: 28px!important;
-        margin: 0px!important;
+        margin: 0px!important;         
     }
    
     .tabbrowser-tab::before, .tabbrowser-tab::after { background: none !important; opacity: 1 !important; visibility: visible !important; }
-     #navigator-toolbox::after { height: 0px !important; }
-   
+     #navigator-toolbox::after{ height: 2px !important;background: #F5F6F7 !important; border-bottom: solid!important; border-bottom-width: 1px!important;border-bottom-color: #d0d0d0!important;}
   #tabbrowser-tabs .tabbrowser-tab[pinned] * {
     background: none !important; 
     margin-right:0px!important;
@@ -133,21 +133,20 @@
     margin-left: 0px!important;
     }
     #tabbrowser-tabs .tabbrowser-tab[selected="true"][pinned] {
-        background: #1a1b22 !important;
+        
+        background: -moz-linear-gradient(bottom, rgba(245,246,247,0.95) 0%,rgba(245,246,247,0.50) 5%, rgba(245,246,247,0.10) 20%, rgba(245,246,247,0) 80%)!important;
         width: 20px!important;
     }
     #tabbrowser-tabs .tabbrowser-tab[selected="true"][pinned]:hover {
-        background: #1a1b22 !important;
+        /*background: #1a1b22 !important;*/
         width: 20px!important;
     }
     .tabs-newtab-button  {
         background: none !important;
     }
-   
     .tabbrowser-tab[pinned] label  { display:none !important; }
     .tab-background-start[pinned]{display: none!important;}
     .tab-background-end[pinned] {display: none!important;}
-    
     #TabsToolbar::after { display: none !important; }
     /* MENUS */
     menuitem + menuseparator, menu + menuseparator/*, .menu-iconic-left*/ { display: none !important; }
