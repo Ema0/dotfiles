@@ -124,7 +124,7 @@ rofi.color-active: argb:50585c78,#d5d4de,argb:0eee8d5,argb:994f5a9a,#ffffff
 rofi.color-urgent: argb:c6676e9c,argb:00da6462,argb:c6eee8d5,argb:ffda6462,argb:c6fdf6e3
 rofi.fullscreen: true
 rofi.lines: 10
-rofi.padding: 335
+rofi.padding: 290
 rofi.separator-style: none
 rofi.width: 30
 rofi.location: 0
