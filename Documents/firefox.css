@@ -41,7 +41,7 @@
     #notification-popup-box, #new-tab-button, #private-browsing-indicator, #search-container, #nav-bar-overflow-button,
     #pocket-button, #loop-button, #social-share-button, #window-controls
     /*#alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
-    
+    .tab-close-button, .tab-close { visibility: hidden !important; }
     * { box-sizing: border-box !important; }
            
    #nav-bar {
@@ -84,17 +84,17 @@
     #forward-button::before { content: ">" !important; left: calc(var(--url-height) + 8px) !important; }
     #urlbar { padding-left: calc((var(--url-height) * 2) + 8px) !important; }
     /**/
-    
-    
+
+
     /* --- Comment out the section below to make the url-bar visible --- */
-    
+
     #nav-bar {
         width: 0 !important; height: 0 !important;
         position: fixed !important; left: -1px !important; top: -1px !important;
         overflow: hidden !important; visibility: hidden !important;
     }
     /**/
-    
+
     /* TABS */
     tab {
         font-family: var(--tab-fonts) !important;font-weight: bold;font-size: var(--tab-font-size);
@@ -105,12 +105,12 @@
     tab[pinned]{
         margin-top: 7px!important;
     }
-   
+
     .tabbrowser-tab .tab-label ,.tabbrowser-tab .tab-close-button,.tabbrowser-tab .tab-icon-sound{margin-bottom: 6px!important;}
     .tabbrowser-tab .tab-throbber {margin-bottom: 6px!important;}
    .tabbrowser-tab[fadein]:not([pinned]) { min-width: 100px !important; max-width: 200px /*100%*/ !important; }
     .tabbrowser-tab[fadein][pinned] { min-width: 40px !important; max-width: 40px /*100%*/ !important; padding-left:3px!important;}
-    .tabbrowser-tab:not([pinned]) label { padding: 0 0 0 0 !important; }
+    .tabbrowser-tab:not([pinned]) label { padding: 0 0 0 19px !important; }
     #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-icon-image {
        display: none!important;
     }
@@ -118,12 +118,15 @@
        margin-bottom: 6px!important;
         padding-right: 0px!important;
     }
+    #tabbrowser-tabs .tabbrowser-tab:hover:not([pinned]) .tab-close-button, .tab-close {
+      visibility: initial !important;
+    }
      #TabsToolbar, #tabbrowser-tabs {
         -moz-appearance: none !important;
         height: 28px !important; min-height: 28px!important;
-        margin: 0px!important;         
+        margin: 0px!important;
     }
-   
+
     .tabbrowser-tab::before, .tabbrowser-tab::after { background: none !important; opacity: 1 !important; visibility: visible !important; }
      #navigator-toolbox::after{ height: 2px !important;background: #F5F6F7 !important; border-bottom: solid!important; border-bottom-width: 1px!important;border-bottom-color: #d0d0d0!important;}
   #tabbrowser-tabs .tabbrowser-tab[pinned] * {
@@ -140,7 +143,7 @@
         background: #4d515b !important;
         /*background: -moz-linear-gradient(bottom, rgba(245,246,247,0.95) 0%,rgba(245,246,247,0.50) 5%, rgba(245,246,247,0.10) 20%, rgba(245,246,247,0) 80%)!important;*/
         width: 20px!important;
-        
+
     }
     #tabbrowser-tabs .tabbrowser-tab[selected="true"][pinned]:hover {
         /*background: #1a1b22 !important;*/
@@ -155,11 +158,11 @@
     #TabsToolbar::after { display: none !important; }
     /* MENUS */
     menuitem + menuseparator, menu + menuseparator/*, .menu-iconic-left*/ { display: none !important; }
- 
+
 
     /* HIDE ORANGE MENU BUTTON */
     #appmenu-toolbar-button, #appmenu-button-container { display: none !important; }
-    
+
     /* HIDE STATUS BAR */
     #status-bar, #statusbar-display, statuspanel { display: none !important; }
 }
@@ -175,29 +178,28 @@
     scrollbar[orient="horizontal"], scrollbar thumb[orient="horizontal"] {
         display: none !important; /* block | none (enable scrollbar) */
     }
-    
+
     /*
        Uncomment section below to apply style
-    
+
        (width/height is controlled by the margin)
     */
     /*
     scrollbar > slider { -moz-appearance: none !important; }
-    
+
     scrollbar[orient="vertical"] { margin: 0 -10px 0 0 !important; }
     scrollbar[orient='vertical'] > slider { background: #27282B !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
         background: #17181A !important; border: 0 !important; width: 100% !important;
     }
-    
+
     scrollbar[orient="horizontal"] { margin: 0 0 -10px 0 !important; }
     scrollbar[orient='horizontal'] > slider { background: #27282B !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
         background: #17181A !important; border: 0 !important; height: 100% !important;
     }
-    
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }
     scrollbar[orient='vertical'] > scrollbarbutton { min-height: 0 !important; }
     scrollbar[orient='horizontal'] > scrollbarbutton { min-width: 0 !important; }
