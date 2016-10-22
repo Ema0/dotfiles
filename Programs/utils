@@ -64,21 +64,23 @@ battery(){
     elif [[ "$bat_status" == "Full" ]]; then
 		echo -n "%{U#92D198}%{F#92D198}%{F-} $bat_level%";
     elif [[ "$bat_status" == "Discharging" || "$bat_status" = "Unknown" ]]; then
-		if [[ $bat_level == "100" || $bat_level == "100%" ]]; then
-			echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level%";
-        elif [[ $bat_level>80 ]]; then
-            echo -n "%{U#92D198} %{F#92D198}%{F-} $bat_level ($bat_life)";
+		if [[ $bat_level == "100" ]]; then
+			echo -n "%{U#92D198}%{F#92D198}%{F-} $bat_level%";
+        elif [[ $bat_level == "100%" ]]; then
+			echo -n "%{U#92D198}%{F#92D198}%{F-} $bat_level ($bat_life)";
+		elif [[ $bat_level>80 ]]; then
+            echo -n "%{U#92D198}%{F#92D198}%{F-} $bat_level ($bat_life)";
         elif [[ $bat_level>60 ]]; then
-            echo -n "%{U#A4DE78} %{F#A4DE78}%{F-} $bat_level ($bat_life)";
+            echo -n "%{U#A4DE78}%{F#A4DE78}%{F-} $bat_level ($bat_life)";
  		elif [[ $bat_level>40 ]]; then
-            echo -n "%{U#E6CA77} %{F#E6CA77}%{F-} $bat_level ($bat_life)";
+            echo -n "%{U#E6CA77}%{F#E6CA77}%{F-} $bat_level ($bat_life)";
 		elif [[ $bat_level>20 ]]; then
-            echo -n "%{U#E85A5A} %{F#E85A5A}%{F-} $bat_level ($bat_life)";
+            echo -n "%{U#E85A5A}%{F#E85A5A}%{F-} $bat_level ($bat_life)";
 		else
 			if [[ $bat_level<10 ]]; then
 				notify-send "battery low" -u critical
 			fi
-			echo -n "%{U#a54242} %{F#a54242}%{F-} $bat_level ($bat_life)";
+			echo -n "%{U#a54242}%{F#a54242}%{F-} $bat_level ($bat_life)";
 		fi
 	fi
 }
