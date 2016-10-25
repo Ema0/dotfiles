@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/emnl/.oh-my-zsh
 export XDG_CONFIG_HOME="$HOME/.config"
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
