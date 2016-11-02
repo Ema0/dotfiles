@@ -42,4 +42,6 @@ nm-applet &
 
 caffeine &
 
+#perl ~/Programs/xSwipe-master/xSwipe.pl &
+
 exec 2bwm
