@@ -16,10 +16,10 @@ conky.config = {
 conky.text = [[
 %{O20}%{+u}%{A4:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) + 1) % 5); killall -SIGUSR1 conky:}%{A5:xdotool set_desktop $$(expr $$(expr $$(xdotool get_desktop) - 1) % 5);killall -SIGUSR1 conky:}${exec ~/Programs/utils ws}%{A}%{A}\
 %{r}\
-%{F\#b3cbb9}%{U\#b3cbb9}  %{F-}${cpu cpu0}% \
-%{-u} %{+u}%{F\#84a9c0}%{U\#84a9c0}  %{F-}${mem} \
-%{-u} %{+u}%{F\#938FC7}%{U\#938FC7}  %{F-}${downspeed enp2s0} \
+%{-u}%{F\#b3cbb9}%{U\#b3cbb9}  %{F-}${cpu cpu0}% \
+%{-u} %{-u}%{F\#84a9c0}%{U\#84a9c0}  %{F-}${mem} \
+%{-u} %{-u}%{F\#938FC7}%{U\#938FC7}  %{F-}${downspeed enp2s0} \
 %{F\#938FC7} %{F-}${upspeed enp2s0}\
-%{-u} %{+u}%{A4:amixer set Master 5%+;killall -SIGUSR1 conky:}%{A2:amixer -D pulse set Master 1+ toggle;killall -SIGUSR1 conky:}%{A5:amixer set Master 5%-;killall -SIGUSR1 conky:}${exec ~/Programs/utils vol} %{A}%{A}%{A}\
-%{-u} %{+u}%{F\#B28BF0}%{U\#B28BF0}  %{F-}${exec date +%H%M} %{-u}%{O20}
+%{-u} %{-u}%{A4:amixer set Master 5%+;killall -SIGUSR1 conky:}%{A2:amixer -D pulse set Master 1+ toggle;killall -SIGUSR1 conky:}%{A5:amixer set Master 5%-;killall -SIGUSR1 conky:}${exec ~/Programs/utils vol} %{A}%{A}%{A}\
+%{-u} %{-u}%{F\#B28BF0}%{U\#B28BF0}  %{F-}${exec date +%H%M} %{-u}%{O20}
 ]]

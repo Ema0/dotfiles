@@ -1,0 +1,37 @@
+! special
+#define fg   #f0f0f0
+#define bg  #232c33
+#define cursorC  #f0f0f0
+
+! black
+! Second black is grey
+#define blk       #232c33
+#define bblk    #70838c
+
+! red
+#define red       #99736e
+#define rred #99736e
+
+! green
+#define grn       #78a090
+#define ggrn     #78a090
+
+! yellow
+#define ylw       #bfb7a1
+#define yylw     #bfb7a1
+
+! blue
+#define blu      #7c9fa6
+#define bblu      #7c9fa6
+
+! magenta
+#define mag    #BF9C86
+#define mmag     #BF9C86
+
+! cyan
+#define cyn    #99BFBA
+#define ccyn     #99BFBA
+
+! white
+#define wht    #f0f0f0
+#define wwht #f0f0f0
