@@ -111,8 +111,8 @@ z.color12:				 #5f5d90
 z.color13:               #a09aa2
 z.color14:               #8e8d9b
 z.color15:               #c8c0d2
-*.font: xft:Pragmata\ Pro:bold:pixelsize=13
-*.boldFont: xft:Pragmata\ Pro:bold:pixelsize=13
+z.font: xft:PragmataPro:bold:pixelsize=13
+z.boldFont: xft:PragmataPro:bold:pixelsize=13
 z.letterSpace: -1
 
 rofi.font: PragmataPro Bold 10.5
@@ -135,11 +135,11 @@ rofi.fixed-num-lines: 10
 rofi.terminal: urxvtc
 rofi.line-margin: 5
 
-#include </home/zemnl/.termcolors/ryuuku>
+#include </home/zemnl/.termcolors/zu>
 ! Colors
 *background:   bg
 *foreground:   fg
-*cursorColor:  cursorC
+*cursorColor:  wht
 
 *color0:      blk
 *color8:      bblk
