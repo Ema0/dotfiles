@@ -7,10 +7,10 @@ Xcursor.theme: OpenzoneIceSlim
 URxvt*scrollBar: false
 !URxvt*boldFont: xft:Terminus:size=8,xft:tewi
 !URxvt*font: xft:Terminus:regular:size=8,xft:tewi
-URxvt*font: xft:Hack-Regular:size=10,xft:Pragmata Pro
-URxvt*boldFont: xft:Hack:bold:size=10,xft:Pragmata Pro
+URxvt*font: xft:Hack:size=9.5,xft:Pragmata Pro
+URxvt*boldFont: xft:Hack:bold:size=9.5,xft:Pragmata Pro
 !URxvt*lineSpace: 1
-!zemnl*letterSpace:1
+URxvt*letterSpace:0
 
 
 
@@ -20,7 +20,7 @@ URxvt*boldFont: xft:Hack:bold:size=10,xft:Pragmata Pro
 
 !URxvt.font: -*-Terminus-*-*-*-*-100-*-*-*-*-iso8859-1
 !URxvt*font: xft:Dejavu Sans Mono:size=9:pixelsize=11
-URxvt*letterSpace: -2
+
 URxvt*geometry: 97x26
 urxvt*perl-lib: /usr/lib/urxvt/perl/
 URxvt*.perl-ext-common: default,matcher,vtwheel
@@ -111,9 +111,9 @@ z.color12:				 #5f5d90
 z.color13:               #a09aa2
 z.color14:               #8e8d9b
 z.color15:               #c8c0d2
-z.font: xft:PragmataPro:bold:pixelsize=13
-z.boldFont: xft:PragmataPro:bold:pixelsize=13
-z.letterSpace: -1
+z.font: xft:Pragmata\ Pro:size=11
+z.boldFont: xft:Pragmata\ Pro:bold:size=11
+z.letterSpace: -2
 
 rofi.font: PragmataPro Bold 10.5
 rofi.opacity: 100
@@ -157,3 +157,7 @@ rofi.line-margin: 5
 *color14:     ccyn
 *color7:      wht
 *color15:     wwht
+
+URxvt.keysym.C-1: command:\033]710;xft:PragmataProMono:pixelsize=13:bold\007\033]711;xft:PragmataPro:size=13:style=Bold\007
+URxvt.keysym.C-2: command:\033]710;xft:PragmataPro:pixelsize=13\007\033]711;xft:PragmataProMono:pixelsiz=13:style=Bold\007
+
