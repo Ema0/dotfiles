@@ -533,3 +533,6 @@ autocmd BufNewFile,BufRead *.zsh setlocal filetipe=zsh
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
+
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
