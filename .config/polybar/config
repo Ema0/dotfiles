@@ -1,0 +1,419 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #bb1a1b22
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #55
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/example]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 20
+offset-x = 0
+offset-y = 0
+dock = true
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 1
+underline-color = #00f
+
+border-bottom = 0
+border-bottom-color = #333
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = PragmataPro:heavy:size=10.5;0
+font-1 = FontAwesome:size=11;0
+font-2 = MaterialDesignIcons:size=12;1
+
+modules-left = desktop
+modules-center =
+modules-right = cpu mem eth1 eth2 volume date powermenu
+
+tray-position = 
+tray-padding = 2
+
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-underline = ${colors.secondary}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+mount-2 = /invalid/mountpoint
+
+label-mounted = %mountpoint%: %percentage_free%
+
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = x
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+label-visible = %index%
+label-visible-foreground = ${module/bspwm.label-empty-padding}
+label-visible-padding = ${module/bspwm.label-empty-padding}
+
+[module/mpd]
+type = internal/mpd
+
+format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = ${colors.primary}
+toggle-off-foreground = #66
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = │
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = #b3cbb9
+format-underline =
+label = %percentage%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = #84a9c0
+format-underline = 
+label = %gb_used%
+
+[module/mem]
+type = custom/script
+
+exec = /home/zemnl/Programs/mem
+interval = 1
+format-overline =
+format-padding = 0
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %essid%
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth1]
+type = internal/network
+interface = enp2s0
+interval = 1.5
+
+format-connected-underline =
+format-connected-prefix = ""
+format-disconnected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %downspeed:9%
+format-connected-prefix-foreground = #938FC7
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = off
+label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-prefix-foreground = #60475a
+[module/eth2]
+type = internal/network
+interface = enp2s0
+interval = 1.5
+
+format-connected-underline =
+format-connected-prefix = ""
+format-disconnected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %upspeed:9%
+format-connected-prefix-foreground = #938FC7
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = off
+label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-prefix-foreground = #60475a
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+
+date-alt = " %a%{F#B28BF0}%d%{F-}%b D%{F#B28BF0}%j%{F-}W%{F#B28BF0}%V"
+
+time = %H%M
+time-alt =
+
+format-prefix =  
+format-prefix-foreground = #B28BF0
+format-underline =
+
+label = %date% %time%
+click-middle = /home/zemnl/Documents/code/scripts/cal
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%
+label-volume-foreground = ${root.foreground}
+format-muted-prefix = " "
+format-muted-prefix-foreground = #C7BCE8
+format-muted-foreground = ${colors.foreground-alt}
+label-muted =  Muted
+format-prefix =
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = #C7BCE8
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-open-foreground = #706ccf
+;label-open-foreground = #5f5d90
+label-close = 
+label-close-foreground = #7c616e
+label-separator = " "
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = 
+menu-0-0-exec = ~/Programs/restrt
+menu-0-1 = 
+menu-0-1-exec = ~/Programs/quit
+menu-0-2 = 
+menu-0-2-exec = ~/Programs/lock
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+; vim:ft=dosini
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+icon-0 = code;♚
+icon-1 = office;♛
+icon-2 = graphics;♜
+icon-3 = mail;♝
+icon-4 = web;♞
+icon-default = ♟
+label-monitor = %name%
+label-active = %icon% %name%
+label-active-foreground = #ffffff
+label-active-background = #3f3f3f
+label-active-underline = #fba922
+label-occupied = %icon%
+label-occupied-underline = #555555
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-empty = %icon%
+label-empty-foreground = #55
+
+[module/desktop]
+type = custom/script
+
+exec = /home/zemnl/Programs/utils ws
+interval = 0.5
+format-overline =
+format-padding = 3
+click-left = rofi -show window
+scroll-up = xdotool set_desktop $(expr $(expr $(xdotool get_desktop) + 1) % 5)
+scroll-down = xdotool set_desktop $(expr $(expr $(xdotool get_desktop) - 1) % 5)

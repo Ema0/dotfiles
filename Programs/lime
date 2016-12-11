@@ -1,6 +1,9 @@
 #!/bin/zsh
-killall tint2 && killall lemonbar && killall conky;
-sleep 0.1 &
-conky -d |  lemonbar -g x20 -B '#bb1a1b22' -f "PragmataPro:Bold:size=10.5" -f "FontAwesome:size=11" -F '#dfdaeb' -u 1 | zsh &
+#killall tint2 && killall lemonbar && killall conky;
+#sleep 0.1 &
+#conky -d |  lemonbar -g x20 -B '#bb1a1b22' -f "PragmataPro:Bold:size=10.5" -f "FontAwesome:size=11" -F '#dfdaeb' -u 1 | zsh &
+killall tint2 && killall -q polybar;
+while pgrep -x polybar >/dev/null; do sleep 1; done &
+polybar example &
 sleep 1 &
 tint2 &
