@@ -1,6 +1,12 @@
 #!/bin/sh
 #confirm=NO
 #Get Number of opened windows in all workspaces
+poly=$(pidof polybar)
+
+if [[ $poly ]]; then
+	echo action:menu-close >/tmp/polybar_mqueue.$poly
+fi
+
 OPENWIN=$(wmctrl -l|awk '{$3=""; $2=""; $1=""; print $0}' | wc -l)
 
 #Get screen resolution and calculate the center of the screen
@@ -12,7 +18,6 @@ HALFWIDTH=$(echo "${R[0]}/2" | bc )
 HALFHEIGHT=$(echo "${R[1]}/2" | bc )
 #move the mouse in the middle so the dialog spawns in the middle too
 xdotool mousemove $HALFWIDTH $HALFHEIGHT;
-
 #DIALOG
 if [[ $OPENWIN -gt 0 ]]; then
         zenity --width=200 --height=100 --default-cancel --question  --text="<span size=\"xx-large\">Restart.</span>\n\nWant to <b>fuck off</b> and come back?\nYou have $OPENWIN windows opened" --title="Restart" && confirm=YES || confirm=NO

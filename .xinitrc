@@ -25,7 +25,7 @@ xsetroot -cursor_name left_ptr &
 
 lxpolkit &
 
-urxvtd -q -o -f &
+#urxvtd -q -o -f &
 
 #~/Documents/code/scripts/w.sh &
 systemctl --user start X.target &

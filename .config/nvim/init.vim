@@ -68,6 +68,9 @@ NeoBundle 'lervag/vimtex'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'junegunn/limelight.vim'
 
+NeoBundle 'Shougo/deoplete.nvim'
+
+let g:deoplete#enable_at_startup = 1
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
@@ -75,13 +78,13 @@ let g:limelight_conceal_ctermfg = 240
   " NeoBundle 'Shougo/vimshell.vim'
 " endif
 
-"if v:version >= 704
+if v:version >= 704
  " Snippets
-  "NeoBundle 'SirVer/ultisnips'
+  NeoBundle 'SirVer/ultisnips'
   "NeoBundle 'FelikZ/ctrlp-py-matcher'
-"endif
+endif
 
-"NeoBundle 'honza/vim-snippets'
+NeoBundle 'honza/vim-snippets'
 
 "" Color
 "NeoBundle 'hybrid'
@@ -456,16 +459,6 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-" jedi-vim
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
 
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
