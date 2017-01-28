@@ -3,7 +3,7 @@
 
 include "/home/zemnl/.gtkrc-2.0.mine"
 gtk-theme-name="Arc-Darker"
-gtk-icon-theme-name="Paper"
+gtk-icon-theme-name="Papirus"
 gtk-font-name="San Francisco Display Medium 10"
 gtk-cursor-theme-name="OpenZone_Ice_Slim"
 gtk-cursor-theme-size=0

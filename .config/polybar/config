@@ -46,15 +46,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = PragmataPro:heavy:size=10.5;0
-font-1 = FontAwesome:size=11;0
-font-2 = MaterialDesignIcons:size=12;1
+font-0 = PragmataPro:heavy:size=10.5;2
+font-1 = FontAwesome:size=11;2
+font-2 = Ionicons:size=12;3
 
 modules-left = desktop
 modules-center =
 modules-right = cpu mem eth1 eth2 volume date powermenu
 
-tray-position = 
+tray-position =
 tray-padding = 2
 
 
@@ -189,15 +189,17 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+;format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = #b3cbb9
 format-underline =
-label = %percentage%
+label = %percentage%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+;format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = #84a9c0
 format-underline = 
 label = %gb_used%
@@ -233,7 +235,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth1]
 type = internal/network
 interface = enp2s0
-interval = 1.5
+interval = 2
 
 format-connected-underline =
 format-connected-prefix = ""
@@ -248,7 +250,7 @@ format-disconnected-prefix-foreground = #60475a
 [module/eth2]
 type = internal/network
 interface = enp2s0
-interval = 1.5
+interval = 2
 
 format-connected-underline =
 format-connected-prefix = ""
@@ -283,16 +285,16 @@ click-middle = /home/zemnl/Documents/code/scripts/cal
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-prefix-foreground = #C7BCE8
 format-muted-foreground = ${colors.foreground-alt}
 label-muted =  Muted
 format-prefix =
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 ramp-volume-foreground = #C7BCE8
 
 [module/battery]
@@ -344,10 +346,10 @@ ramp-foreground = ${colors.foreground-alt}
 [module/powermenu]
 type = custom/menu
 
-label-open = 
+label-open = " "
 label-open-foreground = #706ccf
 ;label-open-foreground = #5f5d90
-label-close = 
+label-close = "  "
 label-close-foreground = #7c616e
 label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
@@ -415,5 +417,6 @@ interval = 0.5
 format-overline =
 format-padding = 3
 click-left = rofi -show window
+click-middle = st -e tmux attach &
 scroll-up = xdotool set_desktop $(expr $(expr $(xdotool get_desktop) + 1) % 5)
 scroll-down = xdotool set_desktop $(expr $(expr $(xdotool get_desktop) - 1) % 5)
